@@ -1,26 +1,26 @@
 <template>
-  <v-pagination 
-  :length="3" 
-  :start="startPage"
-  v-model="currentPage"
-  >
- <template #prev="{disabled}">
-    <div class="prev-btn basic center" @click="clickPrevNext('prev')" >
-      <img :src="PrevIcon" alt="prev" :class="[disabled?'inactive':'']">
-    </div>
-  </template>
-    <template #item="{isActive,page}">
-     <div class="paginator-item basic center" :class="[isActive?'active':'']">{{ page }}</div>
-    </template>
-    <template #next="{disabled}">
-    <div class="next-btn basic center" @click="clickPrevNext('next')">
-      <img :src="NextIcon" alt="next" :class="[disabled?'inactive':'']">
-    </div>
-  </template>
-  </v-pagination>
+  <div class="paginator-container">
+    <v-pagination :length="3" :start="startPage" v-model="currentPage">
+      <template #prev="{ disabled }">
+        <div class="prev-btn basic center" @click="clickPrevNext('prev')">
+          <img :src="PrevIcon" alt="prev" :class="[disabled ? 'inactive' : '']">
+        </div>
+      </template>
+      <template #item="{ isActive, page }">
+        <div class="paginator-item basic center" :class="[isActive ? 'active' : '']">{{ page }}</div>
+      </template>
+      <template #next="{ disabled }">
+        <div class="next-btn basic center" @click="clickPrevNext('next')">
+          <img :src="NextIcon" alt="next" :class="[disabled ? 'inactive' : '']">
+        </div>
+      </template>
+    </v-pagination>
+
+  </div>
+
 </template>
 <script setup>
-import {ref, defineProps, computed, toRaw} from 'vue'
+import {ref, defineProps, computed} from 'vue'
 import PrevIcon from "../assets/prev-arrow.svg"
 import NextIcon from "../assets/next-arrow.svg"
 // styles
@@ -49,8 +49,8 @@ const maxPage = computed(()=>{
 })
 
 const startPage = computed(()=>{
-  const currentPageNum = toRaw(currentPage.value)
-  const maxPageNum = toRaw(maxPage.value)
+  const currentPageNum = currentPage.value
+  const maxPageNum = maxPage.value
   if (currentPageNum === 1) return 1
   else if (currentPageNum === maxPageNum) return maxPageNum - 2
   else return currentPageNum - 1
