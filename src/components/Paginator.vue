@@ -1,23 +1,24 @@
 <template>
   <div class="paginator-container">
-    <v-pagination :length="3" :start="startPage" v-model="currentPage"
+    <v-pagination 
+    :length="3"
+    :start="startPage"
     @update:modelValue="(val)=>currentPage = val"
     >
-      <template #prev="{ disabled }">
+      <template #prev>
         <div class="prev-btn basic center" @click="clickPrevNext('prev')">
-          <img :src="PrevIcon" alt="prev" :class="[disabled ? 'inactive' : '']">
+          <img :src="PrevIcon" alt="prev" :class="[disabledPrevBtn ? 'inactive' : '']">
         </div>
       </template>
-      <template #item="{ isActive, page }">
-        <div class="paginator-item basic center" :class="[isActive ? 'active' : '']">{{ page }}</div>
+      <template #item="{page}">
+        <div class="paginator-item basic center" :class="[page == currentPage ? 'active' : '']">{{ page }}</div>
       </template>
-      <template #next="{ disabled }">
+      <template #next>
         <div class="next-btn basic center" @click="clickPrevNext('next')">
-          <img :src="NextIcon" alt="next" :class="[disabled ? 'inactive' : '']">
+          <img :src="NextIcon" alt="next" :class="[disabledNextBtn ? 'inactive' : '']">
         </div>
       </template>
     </v-pagination>
-
   </div>
 
 </template>
@@ -59,6 +60,12 @@ const startPage = computed(()=>{
 
 })
 
+const disabledPrevBtn = computed(()=>{
+  return currentPage.value === 1
+})
+const disabledNextBtn = computed(()=>{
+  return currentPage.value === maxPage.value
+})
 function clickPrevNext(type) {
   if (type === 'prev' && currentPage.value > 1) {
     currentPage.value--;
