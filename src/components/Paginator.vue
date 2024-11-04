@@ -1,7 +1,7 @@
 <template>
   <div class="paginator-container">
     <v-pagination :length="3" :start="startPage" v-model="currentPage"
-    @update:modelValue="(val)=>currentPage"
+    @update:modelValue="(val)=>currentPage = val"
     >
       <template #prev="{ disabled }">
         <div class="prev-btn basic center" @click="clickPrevNext('prev')">
@@ -59,13 +59,11 @@ const startPage = computed(()=>{
 
 })
 
-function  clickPrevNext(type) {
-  if (type === 'prev') {
-    if (currentPage.value === 1) return
-    currentPage.value --
-  } else {
-    if (currentPage.value === maxPage.value) return
-    currentPage.value ++
+function clickPrevNext(type) {
+  if (type === 'prev' && currentPage.value > 1) {
+    currentPage.value--;
+  } else if (type === 'next' && currentPage.value < maxPage.value) {
+    currentPage.value++;
   }
 }
 
