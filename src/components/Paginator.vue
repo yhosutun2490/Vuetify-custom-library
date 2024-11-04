@@ -1,6 +1,8 @@
 <template>
   <div class="paginator-container">
-    <v-pagination :length="3" :start="startPage" v-model="currentPage">
+    <v-pagination :length="3" :start="startPage" v-model="currentPage"
+    @update:modelValue="(val)=>currentPage"
+    >
       <template #prev="{ disabled }">
         <div class="prev-btn basic center" @click="clickPrevNext('prev')">
           <img :src="PrevIcon" alt="prev" :class="[disabled ? 'inactive' : '']">
