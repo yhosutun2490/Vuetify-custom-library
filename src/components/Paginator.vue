@@ -23,6 +23,8 @@
 import {ref, defineProps, computed, toRaw} from 'vue'
 import PrevIcon from "../assets/prev-arrow.svg"
 import NextIcon from "../assets/next-arrow.svg"
+// styles
+import './Paginator.styles.scss'; // 引入樣式文件
 
 const props = defineProps({
   dataLength: {
@@ -67,43 +69,3 @@ function  clickPrevNext(type) {
 
 </script>
 
-<style scoped lang="scss">
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.basic {
-  width: 40px;
-  height: 40px;
-  background: rgba(234, 243, 244, 1);
-  cursor: pointer;
-}
-
-
-.paginator-item {
-  color: rgba(87, 87, 87, 1);
-  user-select: none;
-  &.active {
-    color: white;
-    background: rgba(113, 175, 182, 1);
-
-  }
-}
-
-.prev-btn,.next-btn {
-  user-select: none;
-}
-.prev-btn {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-.next-btn {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-.inactive {
-  opacity: 0.5;
-}
-</style>
