@@ -9,6 +9,7 @@
   ],
   "main": "./dist/custom-vuetify-lib.cjs.js",
   "module": "./dist/custom-vuetify-lib.es.js",
+  "style": "./dist/style.css",
   "exports": {
     ".": {
       "import": "./dist/custom-vuetify-lib.es.js",
