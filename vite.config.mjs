@@ -52,31 +52,22 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    // rollupOptions: {
-    //   input: {
-    //     combined: resolve(__dirname, 'src/combined.js'),
-    //     primevue: resolve(__dirname, 'src/primevue.js'),
-    //     vuetify: resolve(__dirname, 'src/vuetify.js')
-    //   },
-    //   output: [
-    //     {
-    //       format: 'es',
-    //       dir: 'dist',
-    //       entryFileNames: '[name].es.js'
-    //     },
-    //     {
-    //       format: 'cjs',
-    //       dir: 'dist',
-    //       entryFileNames: '[name].cjs.js'
-    //     }
-    //   ]
-    // },
     lib: {
       entry: {
         main: resolve(__dirname, 'src/index.js') // 打包進入檔
       },
       formats: ['es', 'cjs'],
       fileName: (format) => `custom-vuetify-lib.${format}.js`
+    }
+  },
+  rollupOptions: {
+    // make sure to externalize deps that shouldn't be bundled
+    // into your library
+    external: ['vue', 'vuetify'],
+    output: {
+      globals: {
+        vue: 'Vue',
+      }
     }
   },
 })
