@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Paginator></Paginator>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
