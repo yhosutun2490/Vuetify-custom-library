@@ -5,6 +5,8 @@ import { registerPlugins } from '@/plugins' // vuetify 設定
 export default  {
   install: (app)=> {
     registerPlugins(app)
+    app.component('Paginator',Paginator)
+    app.component('PurePaginator',PurePaginator)
   }
 }
 
