@@ -5,6 +5,7 @@
     :total-visible="3"
     :start="startPage"
     @update:modelValue="(val)=>currentPage = val"
+    ref="paginationRef"
     >
       <template #prev>
         <div class="prev-btn basic center" @click="clickPrevNext('prev')">
@@ -42,7 +43,7 @@ const props = defineProps({
 })
 
 const currentPage = ref(1)
-
+const paginationRef = ref(null)
 const maxPage = computed(()=>{
   const pageCounts = props.dataLength/props.dataPerPage
   const ceil = Math.ceil(props.dataLength/props.dataPerPage)
