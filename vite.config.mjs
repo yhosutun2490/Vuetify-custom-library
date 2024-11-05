@@ -68,18 +68,19 @@ export default defineConfig({
       name: 'custom-vuetify-lib', // 必須在 UMD 格式下指定全局名稱
       formats: ['es', 'cjs','umd'],
       fileName: (format) => `custom-vuetify-lib.${format}.js`
-    }
-  },
-  rollupOptions: {
-    // make sure to externalize deps that shouldn't be bundled
-    // into your library
-    external: ['vue','vuetify'],
-    output: {
-      globals: {
-        vue: 'Vue',
-        vuetify: 'Vuetify'
+    },
+    rollupOptions: {
+      // make sure to externalize deps that shouldn't be bundled
+      // into your library
+      external: ['vue','vuetify'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          vuetify: 'Vuetify'
+        }
       }
-    }
+    },
   },
+
   cssCodeSplit: true
 })
