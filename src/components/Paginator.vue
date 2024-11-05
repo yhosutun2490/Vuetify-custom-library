@@ -1,5 +1,5 @@
 <template>
-  <div class="paginator-container">
+  <div class="paginator-container" v-if="true">
     <v-pagination 
     :length="3"
     :total-visible="3"
