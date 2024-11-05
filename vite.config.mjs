@@ -60,7 +60,8 @@ export default defineConfig({
       entry: {
         main: resolve(__dirname, 'src/index.js') // 打包進入檔
       },
-      formats: ['es', 'cjs'],
+      name: 'custom-vuetify-lib', // 必須在 UMD 格式下指定全局名稱
+      formats: ['es', 'cjs','umd'],
       fileName: (format) => `custom-vuetify-lib.${format}.js`
     }
   },
