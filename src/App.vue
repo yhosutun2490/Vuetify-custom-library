@@ -7,7 +7,6 @@
 </template>
 
 <script setup>
-import Paginator from "./components/Paginator" 
 </script>
 <style scoped>
 .main {
