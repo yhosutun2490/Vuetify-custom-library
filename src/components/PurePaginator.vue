@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-show="true">
     <v-pagination :length="5" ref="paginationRef"></v-pagination>
   </div>
 
