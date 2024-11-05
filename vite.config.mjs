@@ -38,6 +38,7 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+    dedupe: ['vue'], // 增加這段避免重複引入
     extensions: [
       '.js',
       '.json',
