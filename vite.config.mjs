@@ -33,6 +33,9 @@ export default defineConfig({
       },
     }),
   ],
+  optimizeDeps: {
+    exclude: ['vuetify'] // 如果是第三方庫，排除該庫靜態優化
+  },
   define: { 'process.env': {} },
   resolve: {
     alias: {
