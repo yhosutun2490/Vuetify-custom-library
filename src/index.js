@@ -1,4 +1,5 @@
 import Paginator from "./components/Paginator.vue";
+import PurePaginator from "./components/PurePaginator.vue";
 import { registerPlugins } from '@/plugins' // vuetify 設定
 // 添加 install 方法
 export default  {
@@ -7,4 +8,4 @@ export default  {
   }
 }
 
-export {registerPlugins,Paginator}
+export {registerPlugins,Paginator,PurePaginator}

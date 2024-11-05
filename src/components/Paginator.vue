@@ -2,6 +2,7 @@
   <div class="paginator-container">
     <v-pagination 
     :length="3"
+    :total-visible="3"
     :start="startPage"
     @update:modelValue="(val)=>currentPage = val"
     >
