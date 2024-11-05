@@ -67,11 +67,10 @@ export default defineConfig({
   rollupOptions: {
     // make sure to externalize deps that shouldn't be bundled
     // into your library
-    external: ['vue', 'vuetify'],
+    external: ['vue'],
     output: {
       globals: {
         vue: 'Vue',
-        vuetify: 'Vuetify'
       }
     }
   },
