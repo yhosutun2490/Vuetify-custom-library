@@ -12,4 +12,4 @@ export default  {
   }
 }
 
-export {registerPlugins,Paginator,PurePaginator}
+export {registerPlugins,Paginator,PurePaginator,PureButton}
