@@ -1,14 +1,13 @@
 // Plugins
-import Components from 'unplugin-vue-components/vite'
-import Vue from '@vitejs/plugin-vue'
-import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import ViteFonts from 'unplugin-fonts/vite'
-import VueRouter from 'unplugin-vue-router/vite'
-import { resolve } from 'path'
+import Components from "unplugin-vue-components/vite";
+import Vue from "@vitejs/plugin-vue";
+import Vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+import ViteFonts from "unplugin-fonts/vite";
+import VueRouter from "unplugin-vue-router/vite";
+import { resolve } from "path";
 // Utilities
-import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'node:url'
-
+import { defineConfig } from "vite";
+import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -70,27 +69,37 @@ export default defineConfig({
 
     cssCodeSplit: true, // 分割css樣式
     rollupOptions: {
-      
       // https://rollupjs.org/guide/en/#big-list-of-options
-     
+
       input: {
-        main:  resolve(__dirname, 'src/export/index.js'), // 主入口檔
-        Paginator: resolve(__dirname, 'src/export/Paginator/index.js'), // 元件入口檔
-        Button: resolve(__dirname, 'src/export/Button/index.js'), // 元件入口檔
+        main: resolve(__dirname, "src/export/index.js"), // 主入口檔
+        Paginator: resolve(__dirname, "src/export/Paginator/index.js"), // 元件入口檔
+        Button: resolve(__dirname, "src/export/Button/index.js"), // 元件入口檔
       },
-      output: {
-        dir: "dist", // 打包檔案位置資料夾
-        entryFileNames: "[name]/index.js",
-        assetFileNames: "[name]/style.css", // 個別 CSS 文件名稱
-        format: "es",
-        globals: {
-          vue: "Vue",
-          vuetify: "Vuetify",
+      output: [
+        {
+          dir: "dist", // 打包檔案位置資料夾
+          entryFileNames: "[name]/index.js",
+          assetFileNames: "[name]/style.css", // 個別 CSS 文件名稱
+          format: "es",
+          globals: {
+            vue: "Vue",
+            vuetify: "Vuetify",
+          },
         },
-      },
+        {
+          dir: "dist", // 打包檔案位置資料夾
+          entryFileNames: "[name]/index.cjs.js",
+          assetFileNames: "[name]/style.css", // 個別 CSS 文件名稱
+          format: "cjs",
+          globals: {
+            vue: "Vue",
+            vuetify: "Vuetify",
+          },
+        },
+      ],
+
       external: ["vue", "vuetify"],
     },
   },
-
-
 });
