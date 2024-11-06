@@ -1,6 +1,6 @@
 {
   "name": "@yhosutun2490/custom-vuetify-ui-library",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "custom-vuetify-ui-library",
   "private": false,
   "type": "module",
@@ -18,13 +18,18 @@
     },
     "./Paginator": {
       "import": "./dist/Paginator/index.js",
-      "require": "./dist/Paginator/index.cjs.js",
-      "style": "./dist/Paginator/style.css"
+      "require": "./dist/Paginator/index.cjs.js"
+    },
+    "./Paginator/style": {
+      "import": "./dist/Paginator/style.css"
     },
     "./Button": {
       "import": "./dist/Button/index.js",
       "require": "./dist/Button/index.cjs.js",
       "style": "./dist/Button/style.css"
+    },
+    "./Button/style": {
+      "import": "./dist/Button/style.css"
     }
   },
   "publishConfig": {
