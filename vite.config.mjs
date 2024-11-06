@@ -56,14 +56,14 @@ export default defineConfig({
     port: 3000,
   },
   build: {
-    // lib: {
-    //   entry: {
-    //     main: resolve(__dirname, "./export/index.js"), // 打包進入檔
-    //   },
-    //   name: "custom-vuetify-lib", // 必須在 UMD 格式下指定全局名稱
-    //   formats: ["es", "cjs"],
-    //   fileName: (format) => `main.${format}.js`,
-    // },
+    lib: {
+      entry: {
+        main: resolve(__dirname, "./export/index.js"), // 打包進入檔
+      },
+      name: "custom-vuetify-lib", // 必須在 UMD 格式下指定全局名稱
+      formats: ["es", "cjs"],
+      fileName: (format) => `main.${format}.js`,
+    },
 
     // make sure to externalize deps that shouldn't be bundled
     // into your library
@@ -74,9 +74,9 @@ export default defineConfig({
       // https://rollupjs.org/guide/en/#big-list-of-options
      
       input: {
-        main:  resolve(__dirname, 'export/index.js'), // 主入口檔
-        Paginator: resolve(__dirname, 'export/Paginator/index.js'), // 元件入口檔
-        Button: resolve(__dirname, 'export/Button/index.js'), // 元件入口檔
+        main:  resolve(__dirname, 'src/export/index.js'), // 主入口檔
+        Paginator: resolve(__dirname, 'src/export/Paginator/index.js'), // 元件入口檔
+        Button: resolve(__dirname, 'src/export/Button/index.js'), // 元件入口檔
       },
       output: {
         dir: "dist", // 打包檔案位置資料夾
