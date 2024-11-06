@@ -1,21 +1,31 @@
 {
   "name": "@yhosutun2490/custom-vuetify-ui-library",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "custom-vuetify-ui-library",
   "private": false,
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/custom-vuetify-lib.cjs.js",
-  "module": "./dist/custom-vuetify-lib.umd.js",
+  "main": "./dist/main/index.cjs.js",
+  "module": "./dist/main/index.js",
   "style": "./dist/style.css",
   "exports": {
     ".": {
-      "import": "./dist/custom-vuetify-lib.umd.js",
-      "require": "./dist/custom-vuetify-lib.cjs.js"
+      "import": "./dist/main/index.js",
+      "require": "./dist/main/index.cjs.js",
+      "style": "./dist/main/style.css"
     },
-    "./style.css": "./dist/style.css"
+    "./Paginator": {
+      "import": "./dist/Paginator/index.js",
+      "require": "./dist/Paginator/index.cjs.js",
+      "style": "./dist/Paginator/style.css"
+    },
+    "./Button": {
+      "import": "./dist/Button/index.js",
+      "require": "./dist/Button/index.cjs.js",
+      "style": "./dist/Button/style.css"
+    }
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -24,7 +34,9 @@
     "dev": "vite --port 3006",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@mdi/font": "7.4.47",
@@ -36,6 +48,14 @@
     "vuetify": "^3.6.11"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/addon-interactions": "^8.4.2",
+    "@storybook/addon-onboarding": "^8.4.2",
+    "@storybook/blocks": "^8.4.2",
+    "@storybook/test": "^8.4.2",
+    "@storybook/vue3": "^8.4.2",
+    "@storybook/vue3-vite": "^8.4.2",
     "@vitejs/plugin-vue": "^5.0.5",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
@@ -43,8 +63,10 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.4.0",
+    "eslint-plugin-storybook": "^0.11.0",
     "eslint-plugin-vue": "^9.27.0",
     "sass": "1.77.6",
+    "storybook": "^8.4.2",
     "unplugin-fonts": "^1.1.1",
     "unplugin-vue-components": "^0.27.2",
     "unplugin-vue-router": "^0.10.0",
