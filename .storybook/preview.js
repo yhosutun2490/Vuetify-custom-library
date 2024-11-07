@@ -11,6 +11,25 @@ const preview = {
       },
     },
   },
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Global theme for components',
+      toolbar: {
+        icon: 'paintbrush',
+        // Array of plain string values or MenuItem shape
+        items: [
+          { value: 'light', title: 'Light', left: '🌞' },
+          { value: 'dark', title: 'Dark', left: '🌛' },
+        ],
+        // Change title based on selected value
+        dynamicTitle: true,
+      },
+    },
+  },
+  initialGlobals: {
+    theme: 'light',
+  },
 };
 
 // storybook 註冊vuetify app
@@ -22,23 +41,5 @@ setup((app) => {
 /* snipped for brevity */
  
 export const decorators = [withVuetifyTheme];
-
-/*story book theme */
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    toolbar: {
-      icon: 'paintbrush',
-      // Array of plain string values or MenuItem shape
-      items: [
-        { value: 'light', title: 'Light', left: '🌞' },
-        { value: 'dark', title: 'Dark', left: '🌛' },
-      ],
-      // Change title based on selected value
-      dynamicTitle: true,
-    },
-  },
-};
 
 export default preview;

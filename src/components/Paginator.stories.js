@@ -39,6 +39,7 @@ export const Default = Template.bind({});
 Default.args = {
   dataLength: 56,
   dataPerPage: 6,
+  children: ['click me']
 };
 
 // 示例：3 頁

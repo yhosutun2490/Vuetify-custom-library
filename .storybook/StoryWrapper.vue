@@ -6,4 +6,16 @@
   </v-app>
 </template>
  
-<script></script>
+<script setup>
+import {defineProps} from 'vue'
+const props = defineProps({
+  themeName: {
+    type: String,
+    default: 'light'
+  }
+})
+
+</script>
+<style scoped>
+
+</style>
