@@ -1,9 +1,6 @@
-name: Publish
+name: Build and Publish Storybook to GitHub Pages
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 jobs:
