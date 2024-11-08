@@ -2,6 +2,8 @@
 import { setup } from '@storybook/vue3';
 import { registerPlugins } from '../src/plugins';
 import { withVuetifyTheme } from './withVuetifyTheme.decorator';
+import VueApexCharts from "vue3-apexcharts";
+import "apexcharts/dist/apexcharts.css";
 const preview = {
   parameters: {
     controls: {
@@ -36,6 +38,7 @@ const preview = {
 setup((app) => {
   // Registers your app's plugins into Storybook
   registerPlugins(app);
+  app.use(VueApexCharts)
 });
 
 /* snipped for brevity */

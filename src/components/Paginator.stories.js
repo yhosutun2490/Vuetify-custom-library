@@ -13,6 +13,7 @@ export default {
   title: 'Paginator/Paginator',
   component: Paginator,
   tags: ['autodocs'],
+
   argTypes: {
     dataLength: {
       control: {type: 'number'},
@@ -32,7 +33,11 @@ const Template = (args) => ({
   setup() {
     return { args };
   },
-  template: '<Paginator v-bind="args" />',
+  template: `
+    <div style="height: 200px; display: flex; align-items: center; justify-content: center;">
+      <Paginator v-bind="args" />
+    </div>
+  `,
 });
 
 export const Default = Template.bind({});

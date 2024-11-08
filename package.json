@@ -1,6 +1,6 @@
 {
   "name": "@yhosutun2490/custom-vuetify-ui-library",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "custom-vuetify-ui-library",
   "private": false,
   "type": "module",
@@ -50,7 +50,9 @@
   },
   "peerDependencies": {
     "vue": "^3.5.12",
-    "vuetify": "^3.6.11"
+    "vuetify": "^3.6.11",
+    "vue3-apexcharts": "^1.7.0",
+    "apexcharts": "^4.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",

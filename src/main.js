@@ -9,6 +9,7 @@ import { registerPlugins } from '@/plugins'
 import router from './router';
 // Components
 import App from './App.vue'
+import VueApexCharts from 'vue3-apexcharts';
 
 
 // Composables
@@ -18,5 +19,6 @@ const app = createApp(App)
 
 registerPlugins(app)
 app.use(router)
+app.usd(VueApexCharts)
 
 app.mount('#app')
