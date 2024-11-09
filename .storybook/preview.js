@@ -4,7 +4,15 @@ import { registerPlugins } from '../src/plugins';
 import { withVuetifyTheme } from './withVuetifyTheme.decorator';
 import VueApexCharts from "vue3-apexcharts";
 import "apexcharts/dist/apexcharts.css";
+
+
 const preview = {
+  decorators: [
+    (story) => ({
+      components: { story },
+      template: '<div style="margin: 0em;"><story /></div>',
+    }),
+  ],
   parameters: {
     controls: {
       matchers: {
@@ -42,7 +50,7 @@ setup((app) => {
 });
 
 /* snipped for brevity */
- 
+
 export const decorators = [withVuetifyTheme];
 
 export default preview;

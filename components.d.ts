@@ -9,7 +9,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     DonutChart: typeof import('./src/components/DonutChart.vue')['default']
-    DountChart: typeof import('./src/components/DountChart.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Paginator: typeof import('./src/components/Paginator.vue')['default']
     PureButton: typeof import('./src/components/PureButton.vue')['default']
