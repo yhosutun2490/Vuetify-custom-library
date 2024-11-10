@@ -15,5 +15,6 @@ declare module 'vue' {
     PurePaginator: typeof import('./src/components/PurePaginator.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Spinner: typeof import('./src/components/Spinner.vue')['default']
   }
 }

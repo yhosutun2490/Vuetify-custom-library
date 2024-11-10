@@ -1,6 +1,6 @@
 <template>
   <div class="paginator-container">
-    <v-pagination 
+    <v-pagination
     :length="3"
     :total-visible="3"
     :start="startPage"
@@ -47,7 +47,7 @@ const paginationRef = ref(null)
 const maxPage = computed(()=>{
   const pageCounts = props.dataLength/props.dataPerPage
   const ceil = Math.ceil(props.dataLength/props.dataPerPage)
-  if (ceil - pageCounts) return ceil 
+  if (ceil - pageCounts) return ceil
   else {
     return Math.floor(props.dataLength/props.dataPerPage)
   }
@@ -78,3 +78,43 @@ function clickPrevNext(type) {
 
 </script>
 
+<style scoped>
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.basic {
+  width: 40px;
+  height: 40px;
+  background: rgba(234, 243, 244, 1);
+  cursor: pointer;
+}
+
+
+.paginator-item {
+  color: rgba(87, 87, 87, 1);
+  user-select: none;
+  &.active {
+    color: white;
+    background: rgba(113, 175, 182, 1);
+
+  }
+}
+
+.prev-btn,.next-btn {
+  user-select: none;
+}
+.prev-btn {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.next-btn {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.inactive {
+  opacity: 0.5;
+}
+</style>

@@ -1,10 +1,14 @@
 <template>
   <div class="donut-chart">
-    <apexchart type="donut" width="380" :options="chartOptions" :series="data"></apexchart>
+    <div v-if="isLoading" class="loading">
+      <Spinner :size="'2x'"></Spinner>
+    </div>
+    <apexchart v-else type="donut" width="380px" height="200px" :options="chartOptions" :series="data"></apexchart>
   </div>
 </template>
 <script setup>
 import { defineProps, ref ,computed} from 'vue'
+import Spinner from './Spinner.vue';
 /**
  * @prop {Array} data - 資料來源，為一個數值陣列。
  * @prop {Array} colorList - 圖表顏色列表。
@@ -14,7 +18,11 @@ import { defineProps, ref ,computed} from 'vue'
 const props = defineProps({
   data: {
     type: Array,
-    default: ()=> [44, 55]
+    default: ()=> [40,60]
+  },
+  isLoading: {
+    type: Boolean,
+    default: false
   },
   colorList: {
     type: Array,
@@ -142,3 +150,19 @@ const chartOptions = computed(()=>({
   }))
 
 </script>
+<style scoped lang="scss">
+.donut-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+
+  & .loading {
+    color: black;
+    font-size: 20px;
+    align-self: center;
+  }
+
+}
+
+</style>
