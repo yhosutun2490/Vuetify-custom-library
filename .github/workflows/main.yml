@@ -1,8 +1,9 @@
 name: Build and Publish Storybook to GitHub Pages
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
 jobs:
   publish:
     runs-on: ubuntu-latest
